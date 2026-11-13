@@ -1,0 +1,155 @@
+.projects-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--color-black);
+  overflow: hidden;
+  user-select: none;
+}
+
+/* Shared 3D Perspective Environment (1000-1500px camera) */
+/* Exact 3x2 grid proportions, margins and gutters from references/projects.page.png */
+.projects-3d-stage {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  padding-top: 1.28vh;
+  padding-bottom: 1.03vh;
+  padding-left: 2.3%;
+  padding-right: 2.94%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  column-gap: 2.59vw;
+  row-gap: 3.85vh;
+  perspective: 1250px;
+  perspective-origin: 50% 50%;
+  transform-style: preserve-3d;
+}
+
+.project-grid-cell {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.project-card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: block;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  will-change: transform, opacity;
+  cursor: pointer;
+}
+
+/* Subtle, smooth hover enlargement strictly inside its own grid space without overlapping neighbours */
+.project-card-inner {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: var(--color-ivory);
+  transition: transform 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+.projects-section.is-settled .project-card:hover .project-card-inner {
+  transform: scale(1.024);
+}
+
+.project-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  pointer-events: none;
+}
+
+/* Stationary Foreground Brand Motifs Layer (always visually above the cards) */
+.projects-foreground-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* Slightly smaller motifs while preserving proportions and positions */
+.project-motif {
+  position: absolute;
+  width: 9.5%;
+}
+
+.project-motif-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Positioned over the horizontal and vertical gutter intersections */
+.motif-left {
+  left: -3.5%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.motif-center-left {
+  left: 33.55%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.motif-center-right {
+  left: 66%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.motif-right {
+  left: 92.8%;
+  top: 50.8%;
+  transform: translateY(-50%);
+}
+
+/* Responsive Mobile Layout: 2 columns x 3 rows */
+@media (max-width: 768px) {
+  .projects-3d-stage {
+    padding: 16px 4%;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    column-gap: 4vw;
+    row-gap: 2.4vh;
+    perspective: 900px;
+  }
+
+  .project-motif {
+    width: 14%;
+  }
+
+  .motif-left {
+    left: -5%;
+    top: 33.3%;
+  }
+
+  .motif-center-left {
+    left: 50%;
+    top: 33.3%;
+  }
+
+  .motif-center-right {
+    left: 50%;
+    top: 66.6%;
+  }
+
+  .motif-right {
+    left: 90%;
+    top: 66.6%;
+  }
+}

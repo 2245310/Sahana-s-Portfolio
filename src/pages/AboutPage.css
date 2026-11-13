@@ -1,0 +1,147 @@
+.about-page-wrapper {
+  width: 100%;
+  background-color: var(--color-black);
+  display: flex;
+  flex-direction: column;
+}
+
+.about-page {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--color-black);
+  display: flex;
+  flex-direction: column;
+  padding-bottom: clamp(48px, 6vw, 88px);
+}
+
+/* Inner container matching updated references/aboutme.page.png (x=49..1990 in 2048w => 94.78%) */
+.about-inner {
+  width: 94.78%;
+  max-width: 1920px;
+  margin: clamp(32px, 5.2vw, 96px) auto 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8.6%;
+  flex: 1;
+}
+
+/* Left Column: Rectangular Landscape Portrait (x=49..999, y=301..871 => 951x571, 48.95% of inner width) */
+.about-visual-col {
+  width: 48.95%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-top: 6px;
+}
+
+.about-portrait-frame {
+  width: 100%;
+  aspect-ratio: 951 / 571;
+  border-radius: 0;
+  overflow: hidden;
+  background-color: var(--color-ivory);
+}
+
+.about-portrait-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* Right Column: Bio + Curved Arrow & Caption (x=1166..1990 => 42.45% of inner width) */
+.about-content-col {
+  width: 42.45%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.about-bio-block {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(18px, 2vw, 28px);
+}
+
+.about-heading {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: clamp(20px, 1.55vw, 26px);
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: var(--color-orange);
+  margin: 0;
+}
+
+.about-paragraphs {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.about-paragraphs p {
+  font-family: var(--font-mono);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.32;
+  letter-spacing: -0.015em;
+  color: var(--color-ivory);
+  margin: 0;
+}
+
+/* Curved Arrow & Brand Green Caption ("This is who the cat dragged in") */
+.about-caption-group {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-top: clamp(18px, 2.4vw, 34px);
+}
+
+.about-arrow-svg {
+  position: absolute;
+  right: calc(100% + 14px);
+  bottom: -14px;
+  width: clamp(96px, 8.2vw, 148px);
+  height: auto;
+  display: block;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.about-dragged-text {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: clamp(18px, 1.48vw, 25px);
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: var(--color-green);
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .about-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 44px;
+  }
+
+  .about-visual-col {
+    width: 100%;
+    max-width: 680px;
+    margin-top: 0;
+  }
+
+  .about-content-col {
+    width: 100%;
+  }
+
+  .about-arrow-svg {
+    position: static;
+    width: 84px;
+    margin-right: 12px;
+  }
+}

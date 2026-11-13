@@ -1,0 +1,11 @@
+:root {
+  /* Fixed Brand Colours */
+  --color-black: #181818;
+  --color-ivory: #E0D7C8;
+  --color-green: #A48936;
+  --color-orange: #E84525;
+
+  /* Typography */
+  --font-satoshi: 'Satoshi', sans-serif;
+  --font-courier: 'Courier Prime', monospace;
+}

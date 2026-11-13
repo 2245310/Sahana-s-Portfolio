@@ -1,0 +1,58 @@
+.tomfoolery-page {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--color-black);
+  padding-top: 1.5vh;
+  padding-bottom: 10vh;
+  overflow-x: hidden;
+}
+
+.tomfoolery-canvas {
+  position: relative;
+  width: 100%;
+  height: 122vw;
+}
+
+.tomfoolery-item {
+  position: absolute;
+  background-color: var(--color-ivory);
+  overflow: hidden;
+  will-change: transform, opacity;
+}
+
+.tomfoolery-item-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* Mobile free-flowing two-column staggered layout */
+@media (max-width: 768px) {
+  .tomfoolery-canvas {
+    height: auto;
+    padding: 24px 5%;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .tomfoolery-item {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    width: 78% !important;
+  }
+
+  .tomfoolery-item:nth-child(even) {
+    align-self: flex-end;
+    width: 68% !important;
+  }
+
+  .tomfoolery-item:nth-child(3n) {
+    align-self: center;
+    width: 86% !important;
+  }
+}

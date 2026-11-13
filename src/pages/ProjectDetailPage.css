@@ -1,0 +1,256 @@
+.project-detail-wrapper {
+  width: 100%;
+  background-color: var(--color-black);
+  display: flex;
+  flex-direction: column;
+}
+
+.project-detail-page {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--color-black);
+  padding-bottom: clamp(48px, 5.5vw, 84px);
+}
+
+/* Inner container matching references/project.layout.png (921 / 990 = 93.03%) */
+.project-detail-inner {
+  width: 93.03%;
+  max-width: 1780px;
+  margin: clamp(14px, 2vw, 28px) auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(22px, 2.5vw, 36px);
+}
+
+/* Shared 3-column grid geometry from references/project.layout.png */
+.project-detail-top-grid,
+.project-detail-middle-grid,
+.project-detail-bottom-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 9.12%;
+}
+
+/* Top Section: Three Project Imagery Boxes (252 x 247 aspect ratio) */
+.project-detail-top-box {
+  width: 100%;
+  aspect-ratio: 252 / 247;
+  background-color: var(--color-ivory);
+  overflow: hidden;
+  position: relative;
+}
+
+.project-detail-top-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* Outlined Content Boxes (Middle & Bottom Rows) */
+.project-detail-box {
+  border: 1px solid rgba(224, 215, 200, 0.36);
+  background-color: var(--color-black);
+  padding: clamp(18px, 2vw, 28px);
+  position: relative;
+}
+
+/* Middle Row: Left Metadata Box (Col 1) + Right Project Brief Box (Cols 2-3) */
+.project-meta-box {
+  grid-column: 1 / 2;
+  min-height: clamp(175px, 18.2vw, 250px);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(14px, 1.5vw, 22px);
+}
+
+.project-brief-box {
+  grid-column: 2 / 4;
+  min-height: clamp(175px, 18.2vw, 250px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: clamp(16px, 1.8vw, 24px);
+}
+
+.project-brief-section {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.project-field-row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.project-field-label {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.35;
+  color: var(--color-orange);
+  letter-spacing: -0.01em;
+}
+
+.project-field-value,
+.project-field-copy {
+  font-family: var(--font-mono);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.36;
+  color: var(--color-ivory);
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+/* Bottom Row: Left Strategy Breakdown Box (Col 1) + Right Process Box (Cols 2-3) */
+.project-breakdown-box {
+  grid-column: 1 / 2;
+  min-height: clamp(540px, 56vw, 820px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: clamp(18px, 2vw, 28px);
+}
+
+.project-breakdown-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Designated Box/Area for Iterations and Explorations */
+.project-process-box {
+  grid-column: 2 / 4;
+  min-height: clamp(540px, 56vw, 820px);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.project-process-heading {
+  position: relative;
+  z-index: 6;
+  margin-bottom: 10px;
+  flex-shrink: 0;
+}
+
+/* Scattered Stage strictly inside the Process box below the "Process:" label */
+.project-process-scatter-stage {
+  position: relative;
+  width: 100%;
+  flex: 1;
+  min-height: clamp(460px, 50vw, 740px);
+  overflow: hidden;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Draggable PNG Sticker */
+.project-scatter-card {
+  position: absolute;
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: none;
+  will-change: transform;
+  filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.38));
+  transition: filter 0.2s ease;
+}
+
+.project-scatter-card.is-dragging {
+  cursor: grabbing;
+  filter: drop-shadow(0 16px 28px rgba(0, 0, 0, 0.65));
+}
+
+.project-scatter-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* Bottom Next Project Navigation Button */
+.project-next-nav {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: clamp(12px, 1.5vw, 24px);
+}
+
+.project-next-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 22px;
+  border: 1px solid var(--color-orange);
+  background-color: transparent;
+  color: var(--color-ivory);
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.project-next-btn:hover {
+  background-color: var(--color-orange);
+  color: var(--color-black);
+}
+
+.project-next-arrow {
+  display: inline-block;
+  transition: transform 0.25s ease;
+}
+
+.project-next-btn:hover .project-next-arrow {
+  transform: translateX(4px);
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 960px) {
+  .project-detail-top-grid {
+    column-gap: 4%;
+  }
+
+  .project-detail-middle-grid,
+  .project-detail-bottom-grid {
+    grid-template-columns: 1fr;
+    row-gap: 20px;
+  }
+
+  .project-meta-box,
+  .project-brief-box,
+  .project-breakdown-box,
+  .project-process-box {
+    grid-column: 1 / -1;
+  }
+
+  .project-breakdown-box {
+    min-height: 360px;
+    gap: 20px;
+  }
+
+  .project-process-box {
+    min-height: 480px;
+  }
+}
+
+@media (max-width: 640px) {
+  .project-detail-top-grid {
+    grid-template-columns: 1fr;
+    row-gap: 16px;
+  }
+}
